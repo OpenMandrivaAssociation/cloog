@@ -1,19 +1,18 @@
-%define		major		4
-%define		libname		%mklibname %name %{major}
-%define		libnamedev	%mklibname -d %name
-%define		staticdev	%mklibname -d -s %name
+%define	major	4
+%define	libname	%mklibname %{name}-isl %{major}
+%define	devname	%mklibname -d %{name}-isl
 
+Summary:	The Chunky Loop Generator
 Name:		cloog
 Version:	0.18.0
-Release:	1
-Summary:	The Chunky Loop Generator
-
+Release:	2
 Group:		System/Libraries
 License:	GPLv2+
-URL:		http://www.cloog.org
-Source0:	http://www.bastoul.net/cloog/pages/download/cloog-%version.tar.gz
+Url:		http://www.cloog.org
+Source0:	http://www.bastoul.net/cloog/pages/download/%{name}-%{version}.tar.gz
 Patch0:		cloog-0.18.0-automake-1.13.patch
-BuildRequires:	gmp-devel pkgconfig(isl)
+BuildRequires:	gmp-devel
+BuildRequires:	pkgconfig(isl)
 
 %description
 CLooG is a software which generates loops for scanning Z-polyhedra. That is,
@@ -24,37 +23,33 @@ designed to avoid control overhead and to produce a very efficient code.
 %package -n %{libname}
 Summary:	Integer Set Library backend (isl) based version of the CLooG binaries
 Group:		Development/C
+Obsoletes:	%{_lib}cloog4 < 0.18.0-2
 
 %description -n %{libname}
 The dynamic shared libraries of the Chunky Loop Generator
 
-%package -n %{libnamedev}
+%package -n %{devname}
 Summary:	Development tools for the isl based version of Chunky Loop Generator
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
-Requires:	gmp-devel pkgconfig(isl)
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{_lib}cloog-devel < 0.18.0-2
+Obsoletes:	%{_lib}cloog-static-devel < 0.18.0-2
 
-%description -n %{libnamedev}
+%description -n %{devname}
 The header files and .so link of the Chunky Loop Generator.
-
-%package -n %staticdev
-Summary:	Static library for the isl based version of the Chunky Loop Generator
-Group:		Development/C
-Requires:	%libnamedev = %version-%release
-
-%description -n %staticdev
-Static library for the isl based version of the Chunky Loop Generator
 
 %prep
 %setup -q
 %apply_patches
-aclocal
-automake -a
-autoconf
+autoreconf -fi
 
 %build
-%configure --with-isl=system --with-bits=gmp
+%configure2_5x \
+	--disable-static \
+	--with-isl=system \
+	--with-bits=gmp
+
 %make
 
 %install
@@ -66,10 +61,8 @@ autoconf
 %files -n %{libname}
 %{_libdir}/libcloog-isl.so.%{major}*
 
-%files -n %{libnamedev}
+%files -n %{devname}
 %{_includedir}/cloog
 %{_libdir}/libcloog-isl.so
 %{_libdir}/pkgconfig/cloog-isl.pc
 
-%files -n %staticdev
-%_libdir/*.a
