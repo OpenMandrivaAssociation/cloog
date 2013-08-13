@@ -1,11 +1,11 @@
-%define	major	4
-%define	libname	%mklibname %{name}-isl %{major}
-%define	devname	%mklibname -d %{name}-isl
+%define major 4
+%define libname %mklibname %{name}-isl %{major}
+%define devname %mklibname -d %{name}-isl
 
 Summary:	The Chunky Loop Generator
 Name:		cloog
 Version:	0.18.0
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	GPLv2+
 Url:		http://www.cloog.org
@@ -26,7 +26,7 @@ Group:		Development/C
 Obsoletes:	%{_lib}cloog4 < 0.18.0-2
 
 %description -n %{libname}
-The dynamic shared libraries of the Chunky Loop Generator
+The dynamic shared libraries of the Chunky Loop Generator.
 
 %package -n %{devname}
 Summary:	Development tools for the isl based version of Chunky Loop Generator
