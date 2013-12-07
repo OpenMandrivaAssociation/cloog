@@ -5,7 +5,7 @@
 Summary:	The Chunky Loop Generator
 Name:		cloog
 Version:	0.18.0
-Release:	4
+Release:	5
 Group:		System/Libraries
 License:	GPLv2+
 Url:		http://www.cloog.org
