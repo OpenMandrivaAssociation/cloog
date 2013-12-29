@@ -4,13 +4,12 @@
 
 Summary:	The Chunky Loop Generator
 Name:		cloog
-Version:	0.18.0
-Release:	7
+Version:	0.18.1
+Release:	1
 Group:		System/Libraries
 License:	GPLv2+
 Url:		http://www.cloog.org
 Source0:	http://www.bastoul.net/cloog/pages/download/%{name}-%{version}.tar.gz
-Patch0:		cloog-0.18.0-automake-1.13.patch
 BuildRequires:	gmp-devel
 BuildRequires:	pkgconfig(isl)
 
@@ -65,4 +64,5 @@ autoreconf -fi
 %{_includedir}/cloog
 %{_libdir}/libcloog-isl.so
 %{_libdir}/pkgconfig/cloog-isl.pc
-
+%{_libdir}/isl
+%{_libdir}/cloog-isl
