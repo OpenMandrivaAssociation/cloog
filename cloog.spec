@@ -1,6 +1,7 @@
 %define major 4
 %define libname %mklibname %{name}-isl %{major}
 %define devname %mklibname -d %{name}-isl
+%define _disable_rebuild_configure 1
 
 Summary:	The Chunky Loop Generator
 Name:		cloog
