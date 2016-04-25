@@ -4,14 +4,14 @@
 
 Summary:	The Chunky Loop Generator
 Name:		cloog
-Version:	0.18.1
-Release:	2
+Version:	0.18.4
+Release:	1
 Group:		System/Libraries
 License:	GPLv2+
 Url:		http://www.cloog.org
 Source0:	http://www.bastoul.net/cloog/pages/download/%{name}-%{version}.tar.gz
 BuildRequires:	gmp-devel
-BuildRequires:	pkgconfig(isl)
+BuildRequires:	pkgconfig(isl) >= 0.16.1
 
 %description
 CLooG is a software which generates loops for scanning Z-polyhedra. That is,
@@ -40,8 +40,6 @@ The header files and .so link of the Chunky Loop Generator.
 
 %prep
 %setup -q
-%apply_patches
-autoreconf -fi
 
 %build
 %configure2_5x \
