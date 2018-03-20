@@ -6,7 +6,7 @@
 Summary:	The Chunky Loop Generator
 Name:		cloog
 Version:	0.18.4
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	GPLv2+
 Url:		http://www.cloog.org
@@ -41,17 +41,17 @@ The header files and .so link of the Chunky Loop Generator.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure \
 	--with-isl=system \
 	--with-bits=gmp
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_bindir}/cloog
