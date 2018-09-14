@@ -1,4 +1,2 @@
-removed_sources:
-  cloog-0.18.2.tar.gz: 8a24165541ab25be6f2e4d907f4d711d73ad090f
 sources:
-  cloog-0.18.4.tar.gz: 8f7568ca1873f8d55bb694c8b9b83f7f4c6c1aa5
+  cloog-0.20.0.tar.gz: 79666c81b0c454eb4e0e4f49970bc47bfd0c9ccc
