@@ -1,6 +1,7 @@
 %define major 4
 %define libname %mklibname %{name}-isl %{major}
 %define devname %mklibname -d %{name}-isl
+%define debug_package %{nil}
 %define _disable_rebuild_configure 1
 
 Summary:	The Chunky Loop Generator
@@ -40,13 +41,18 @@ Obsoletes:	%{_lib}cloog-static-devel < 0.18.0-2
 The header files and .so link of the Chunky Loop Generator.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
+# FIXME ugly hack: We make sure configure won't find
+# texi2dvi because the docs don't build (and not
+# having texi2dvi is the only way to tell it not
+# to build docs)
+sed -i -e 's,texi2dvi,broken-texi2dvi,g' configure.ac configure
 
 %build
 %configure \
 	--with-isl=system \
-	--with-bits=gmp
+	--with-bits=gmp \
+	--enable-portable-binary
 
 %make_build
 
