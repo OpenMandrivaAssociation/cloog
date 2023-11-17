@@ -1,0 +1,62 @@
+diff -up cloog-0.21.0/aclocal.m4.omv~ cloog-0.21.0/aclocal.m4
+diff -up cloog-0.21.0/configure.ac.omv~ cloog-0.21.0/configure.ac
+--- cloog-0.21.0/configure.ac.omv~	2023-11-17 20:48:27.609222939 +0100
++++ cloog-0.21.0/configure.ac	2023-11-17 20:49:20.736686599 +0100
+@@ -130,7 +130,7 @@ case "$with_cloog_int" in
+       fi
+ 
+       if test "$with_gmp_exec_prefix" != "yes" ; then
+-        LDFLAGS="-L$with_gmp_exec_prefix/lib $LDFLAGS"
++        LDFLAGS="$LDFLAGS"
+       fi
+     ;;
+     esac
+@@ -208,7 +208,7 @@ system)
+ 		ISL_CPPFLAGS="-I$with_isl_prefix/include"
+ 	fi
+ 	if test "x$with_isl_exec_prefix" != "x"; then
+-		ISL_LDFLAGS="-L$with_isl_exec_prefix/lib"
++		ISL_LDFLAGS=""
+ 	fi
+ 	ISL_LIBS="-lisl"
+ esac
+@@ -241,7 +241,7 @@ system)
+ 		OSL_CPPFLAGS="-I$with_osl_prefix/include"
+ 	fi
+ 	if test "x$with_osl_exec_prefix" != "x"; then
+-		OSL_LDFLAGS="-L$with_osl_exec_prefix/lib"
++		OSL_LDFLAGS=""
+ 	fi
+ 	OSL_LIBS="-losl"
+ 	OSL_CPPFLAGS+=" -D$osl_flag"
+diff -up cloog-0.21.0/configure.omv~ cloog-0.21.0/configure
+--- cloog-0.21.0/configure.omv~	2023-11-17 20:53:23.572818503 +0100
++++ cloog-0.21.0/configure	2023-11-17 20:54:18.665304462 +0100
+@@ -14555,7 +14555,7 @@ case "$with_cloog_int" in
+       fi
+ 
+       if test "$with_gmp_exec_prefix" != "yes" ; then
+-        LDFLAGS="-L$with_gmp_exec_prefix/lib $LDFLAGS"
++        LDFLAGS="$LDFLAGS"
+       fi
+     ;;
+     esac
+@@ -14784,7 +14784,7 @@ fi
+ 		ISL_CPPFLAGS="-I$with_isl_prefix/include"
+ 	fi
+ 	if test "x$with_isl_exec_prefix" != "x"; then
+-		ISL_LDFLAGS="-L$with_isl_exec_prefix/lib"
++		ISL_LDFLAGS=""
+ 	fi
+ 	ISL_LIBS="-lisl"
+ esac
+@@ -14908,7 +14908,7 @@ system)
+ 		OSL_CPPFLAGS="-I$with_osl_prefix/include"
+ 	fi
+ 	if test "x$with_osl_exec_prefix" != "x"; then
+-		OSL_LDFLAGS="-L$with_osl_exec_prefix/lib"
++		OSL_LDFLAGS=""
+ 	fi
+ 	OSL_LIBS="-losl"
+ 	OSL_CPPFLAGS+=" -D$osl_flag"
+diff -up cloog-0.21.0/isl/configure.ac.omv~ cloog-0.21.0/isl/configure.ac
