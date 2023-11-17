@@ -20,6 +20,10 @@ Source0:	https://github.com/periscop/cloog/releases/download/cloog-%{version}/%{
 Patch0:		cloog-0.21.0-noLlib.patch
 BuildRequires:	gmp-devel
 BuildRequires:	pkgconfig(isl)
+BuildRequires:	autoconf
+BuildRequires:	autoconf-archive
+BuildRequires:	automake
+BuildRequires:	make
 
 %description
 CLooG is a software which generates loops for scanning Z-polyhedra. That is,
