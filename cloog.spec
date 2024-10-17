@@ -15,7 +15,7 @@ Version:	0.21.1
 Release:	1
 Group:		System/Libraries
 License:	GPLv2+
-Url:		http://www.cloog.org
+Url:		https://www.cloog.org
 Source0:	https://github.com/periscop/cloog/releases/download/cloog-%{version}/%{name}-%{version}.tar.gz
 Patch0:		cloog-0.21.0-noLlib.patch
 BuildRequires:	gmp-devel
