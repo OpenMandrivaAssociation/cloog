@@ -18,6 +18,8 @@ License:	GPLv2+
 Url:		https://www.cloog.org
 Source0:	https://github.com/periscop/cloog/releases/download/cloog-%{version}/%{name}-%{version}.tar.gz
 Patch0:		cloog-0.21.0-noLlib.patch
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	gmp-devel
 BuildRequires:	pkgconfig(isl)
 BuildRequires:	autoconf
